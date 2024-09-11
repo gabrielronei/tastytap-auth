@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  FUNCTION_NAME: "tastytap-auth"
+
 jobs:
   deploy:
     name: "Deploying lambda"
