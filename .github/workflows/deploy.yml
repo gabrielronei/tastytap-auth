@@ -6,9 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  FUNCTION_NAME: "authorize"
-
 jobs:
   deploy:
     name: "Deploying lambda"
