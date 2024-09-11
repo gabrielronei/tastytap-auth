@@ -1,9 +1,9 @@
 const { exit } = require('process');
-const { handler } = require('./index');
+const { handler } = require('./index.js');
 
 // Simula o evento Lambda
 const event = {
-  body: JSON.stringify({ cpf: '51313957811' }),
+  cpf: '46586691028',
 };
 
 // Executa a função Lambda
