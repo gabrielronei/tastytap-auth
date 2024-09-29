@@ -17,18 +17,6 @@ function sanitizeCPF(cpf) {
     return cpf.replace(/\D/g, '');
 }
 
-async function persist(jwtToken, cpf) {
-    const connection = await mysql.createConnection(dbConfig);
-
-    await connection.execute(
-        'UPDATE user SET loginToken = ? WHERE cpf = ?',
-        [jwtToken, cpf]
-    );
-
-    await connection.end();
-
-}
-
 async function findBy(cpf) {
     const connection = await mysql.createConnection(dbConfig);
 
@@ -58,8 +46,6 @@ exports.handler = async (event) => {
 
         try {
             const token = jwt.sign({ cpf }, secretKey, { expiresIn: 3600 });
-
-            await persist(token, cpf);
 
             return {
                 statusCode: 200,
