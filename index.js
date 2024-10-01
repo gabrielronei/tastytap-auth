@@ -38,8 +38,9 @@ async function findBy(cpf) {
 const secretKey = process.env.JWT_SECRET || "4c8895e1f38886e79ece6b115b91fa04becc27e344fb7275d7eabd8669e243c4";
 
 exports.handler = async (event) => {
-    console.log(event)
-    let { cpf } = JSON.parse(JSON.stringify(event));
+    console.log(event.body)
+    let { cpf } = JSON.parse(event.body);
+    console.log(cpf)
     cpf = sanitizeCPF(cpf)
 
     if (await findBy(cpf)) {

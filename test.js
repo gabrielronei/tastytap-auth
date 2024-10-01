@@ -3,7 +3,7 @@ const { handler } = require('./index.js');
 
 // Simula o evento Lambda
 const event = {
-  cpf: '51313957801',
+  body: '{\n    "cpf": "32621927831"\n}',
 };
 
 // Executa a função Lambda
