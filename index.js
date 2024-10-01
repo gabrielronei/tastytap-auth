@@ -51,18 +51,27 @@ exports.handler = async (event) => {
             return {
                 statusCode: 200,
                 body: JSON.stringify({ token }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             };
         } catch (error) {
             console.error('Erro:', error);
             return {
                 statusCode: 500,
                 body: JSON.stringify({ message: 'Erro ao processar a solicitação' }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             };
         }
     } else {
         return {
             statusCode: 400,
             body: JSON.stringify({ message: 'CPF não econtrado' }),
+            headers: {
+                'Content-Type': 'application/json',
+            }
         };
     }
 };
